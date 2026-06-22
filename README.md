@@ -2,6 +2,11 @@
 <h1 align="center" id="chaatbazaar">CubeIt</h1>
 
 <div align="center">
+
+  <img width="100%" alt="CubeIt Banner" src="https://raw.githubusercontent.com/shresthgoel77-png/CubeIt/shresthgoel77-png-patch-1/public/CubeIt%20banner.png" />
+</div>
+<h1 align="center" id="Cubeit">CubeIt</h1>
+<div align="center">
   <strong>The Next-Generation, 3D Interactive Speedcubing Suite</strong>
 </div>
 
@@ -10,11 +15,12 @@
   advanced statistics, and seamless offline capabilities.
 </div>
 
+
 <p align="center">
   <a href="https://cube-it-app.netlify.app/">Live Link</a>
 </p>
 
-## 📑 Table of Contents
+##  Table of Contents
 
 - [About the Project](#about-the-project)
 - [Key Features](#key-features)
@@ -23,7 +29,6 @@
 - [Getting Started](#getting-started)
 - [Documentation](#documentation)
 - [Contact](#contacts)
-
 
 <div align="center"><img src="https://placehold.co/100x3/9A1838/9A1838.png" width="10%" height="3px"><img src="https://placehold.co/100x3/B43E2C/B43E2C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/C56821/C56821.png" width="10%" height="3px"><img src="https://placehold.co/100x3/CE921C/CE921C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/D0B92B/D0B92B.png" width="10%" height="3px"><img src="https://placehold.co/100x3/81A543/81A543.png" width="10%" height="3px"><img src="https://placehold.co/100x3/258C5A/258C5A.png" width="10%" height="3px"><img src="https://placehold.co/100x3/166B8E/166B8E.png" width="10%" height="3px"><img src="https://placehold.co/100x3/154BB2/154BB2.png" width="10%" height="3px"><img src="https://placehold.co/100x3/0E2A80/0E2A80.png" width="10%" height="3px"></div>
 

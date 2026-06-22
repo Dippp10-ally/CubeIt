@@ -1,4 +1,8 @@
+<img width="1774" height="887" alt="image" src="https://github.com/user-attachments/assets/907bf369-bc39-4b23-aa3f-97cefe06946c" />
+<h1 align="center" id="chaatbazaar">CubeIt</h1>
+
 <div align="center">
+
   <img width="100%" alt="CubeIt Banner" src="https://raw.githubusercontent.com/shresthgoel77-png/CubeIt/shresthgoel77-png-patch-1/public/CubeIt%20banner.png" />
 </div>
 <h1 align="center" id="Cubeit">CubeIt</h1>
@@ -16,8 +20,8 @@
   <a href="https://cube-it-app.netlify.app/">Live Link</a>
 </p>
 
-## 📑 Table of Contents
- 
+##  Table of Contents
+
 - [About the Project](#about-the-project)
 - [Key Features](#key-features)
 - [Visual Showcase](#visual-showcase)

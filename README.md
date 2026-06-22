@@ -1,6 +1,3 @@
-<img width="1774" height="887" alt="image" src="https://github.com/user-attachments/assets/907bf369-bc39-4b23-aa3f-97cefe06946c" />
-<h1 align="center" id="chaatbazaar">CubeIt</h1>
-
 <div align="center">
 
   <img width="100%" alt="CubeIt Banner" src="https://raw.githubusercontent.com/shresthgoel77-png/CubeIt/shresthgoel77-png-patch-1/public/CubeIt%20banner.png" />
@@ -30,9 +27,8 @@
 - [Documentation](#documentation)
 - [Contact](#contacts)
 
-<div align="center"><img src="https://placehold.co/100x3/9A1838/9A1838.png" width="10%" height="3px"><img src="https://placehold.co/100x3/B43E2C/B43E2C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/C56821/C56821.png" width="10%" height="3px"><img src="https://placehold.co/100x3/CE921C/CE921C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/D0B92B/D0B92B.png" width="10%" height="3px"><img src="https://placehold.co/100x3/81A543/81A543.png" width="10%" height="3px"><img src="https://placehold.co/100x3/258C5A/258C5A.png" width="10%" height="3px"><img src="https://placehold.co/100x3/166B8E/166B8E.png" width="10%" height="3px"><img src="https://placehold.co/100x3/154BB2/154BB2.png" width="10%" height="3px"><img src="https://placehold.co/100x3/0E2A80/0E2A80.png" width="10%" height="3px"></div>
-
-## 📖 About the Project <a name="about-the-project"></a>
+---
+##  About the Project <a name="about-the-project"></a>
 
 Traditional cube timers are just static numbers on a screen. **CubeIt** reimagines the speedcubing experience with a highly polished, "Amethyst & Slate" dark mode UI, powered by modern 3D graphics. 
 
@@ -43,7 +39,7 @@ Watch a 3D Rubik's Cube perfectly mirror your randomly generated scrambles in re
 * **Performance Tracking:** Advanced analytics including Ao5, Ao12, and PB tracking.
 * **Installable:** Fully functional offline via Progressive Web App (PWA) architecture.
 
-<div align="center"><img src="https://placehold.co/100x3/9A1838/9A1838.png" width="10%" height="3px"><img src="https://placehold.co/100x3/B43E2C/B43E2C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/C56821/C56821.png" width="10%" height="3px"><img src="https://placehold.co/100x3/CE921C/CE921C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/D0B92B/D0B92B.png" width="10%" height="3px"><img src="https://placehold.co/100x3/81A543/81A543.png" width="10%" height="3px"><img src="https://placehold.co/100x3/258C5A/258C5A.png" width="10%" height="3px"><img src="https://placehold.co/100x3/166B8E/166B8E.png" width="10%" height="3px"><img src="https://placehold.co/100x3/154BB2/154BB2.png" width="10%" height="3px"><img src="https://placehold.co/100x3/0E2A80/0E2A80.png" width="10%" height="3px"></div>
+---
 
 ##  Key Features <a name="key-features"></a>
 
@@ -54,9 +50,9 @@ Watch a 3D Rubik's Cube perfectly mirror your randomly generated scrambles in re
 -  **Responsive Design:** A beautifully unified interface that scales perfectly from 4K desktop monitors down to mobile screens with touch-optimized controls.
 -  **Focus Mode:** UI elements gracefully fade away when the timer starts, allowing absolute concentration on the solve.
 
-<div align="center"><img src="https://placehold.co/100x3/9A1838/9A1838.png" width="10%" height="3px"><img src="https://placehold.co/100x3/B43E2C/B43E2C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/C56821/C56821.png" width="10%" height="3px"><img src="https://placehold.co/100x3/CE921C/CE921C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/D0B92B/D0B92B.png" width="10%" height="3px"><img src="https://placehold.co/100x3/81A543/81A543.png" width="10%" height="3px"><img src="https://placehold.co/100x3/258C5A/258C5A.png" width="10%" height="3px"><img src="https://placehold.co/100x3/166B8E/166B8E.png" width="10%" height="3px"><img src="https://placehold.co/100x3/154BB2/154BB2.png" width="10%" height="3px"><img src="https://placehold.co/100x3/0E2A80/0E2A80.png" width="10%" height="3px"></div>
+---
 
-## 💻 Tech Stack <a name="tech-stack"></a>
+##  Tech Stack <a name="tech-stack"></a>
 
 Built with modern web and 3D technologies:
 * <img src="https://img.shields.io/badge/React_18-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React 18" />
@@ -65,9 +61,9 @@ Built with modern web and 3D technologies:
 * <img src="https://img.shields.io/badge/Webpack-8DD6F9?style=flat-square&logo=webpack&logoColor=black" alt="Webpack" />
 * <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js" />
 
-<div align="center"><img src="https://placehold.co/100x3/9A1838/9A1838.png" width="10%" height="3px"><img src="https://placehold.co/100x3/B43E2C/B43E2C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/C56821/C56821.png" width="10%" height="3px"><img src="https://placehold.co/100x3/CE921C/CE921C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/D0B92B/D0B92B.png" width="10%" height="3px"><img src="https://placehold.co/100x3/81A543/81A543.png" width="10%" height="3px"><img src="https://placehold.co/100x3/258C5A/258C5A.png" width="10%" height="3px"><img src="https://placehold.co/100x3/166B8E/166B8E.png" width="10%" height="3px"><img src="https://placehold.co/100x3/154BB2/154BB2.png" width="10%" height="3px"><img src="https://placehold.co/100x3/0E2A80/0E2A80.png" width="10%" height="3px"></div>
+---
 
-## 📸 Visual Showcase <a name="visual-showcase"></a>
+## Visual Showcase <a name="visual-showcase"></a>
 
 ### Desktop Experience
 <div align="center">
@@ -101,9 +97,9 @@ Built with modern web and 3D technologies:
   </table>
 </div>
 
-<div align="center"><img src="https://placehold.co/100x3/9A1838/9A1838.png" width="10%" height="3px"><img src="https://placehold.co/100x3/B43E2C/B43E2C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/C56821/C56821.png" width="10%" height="3px"><img src="https://placehold.co/100x3/CE921C/CE921C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/D0B92B/D0B92B.png" width="10%" height="3px"><img src="https://placehold.co/100x3/81A543/81A543.png" width="10%" height="3px"><img src="https://placehold.co/100x3/258C5A/258C5A.png" width="10%" height="3px"><img src="https://placehold.co/100x3/166B8E/166B8E.png" width="10%" height="3px"><img src="https://placehold.co/100x3/154BB2/154BB2.png" width="10%" height="3px"><img src="https://placehold.co/100x3/0E2A80/0E2A80.png" width="10%" height="3px"></div>
+---
 
-## 🚀 Getting Started <a name="getting-started"></a>
+## Getting Started <a name="getting-started"></a>
 
 ### 1. Progressive Web App (PWA) - Install It Locally!
 CubeIt is built as a highly optimized **Progressive Web App (PWA)**. This means you do not have to keep it as an open browser tab—you can install it directly onto your device!
@@ -150,33 +146,27 @@ Want to run CubeIt on your local machine to tinker with the code? It's easy!
    ```
    This compiles the highly optimized static files into the `build/` directory, ready to be deployed to Vercel, Netlify, or GitHub Pages.
 
-<div align="center"><img src="https://placehold.co/100x3/9A1838/9A1838.png" width="10%" height="3px"><img src="https://placehold.co/100x3/B43E2C/B43E2C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/C56821/C56821.png" width="10%" height="3px"><img src="https://placehold.co/100x3/CE921C/CE921C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/D0B92B/D0B92B.png" width="10%" height="3px"><img src="https://placehold.co/100x3/81A543/81A543.png" width="10%" height="3px"><img src="https://placehold.co/100x3/258C5A/258C5A.png" width="10%" height="3px"><img src="https://placehold.co/100x3/166B8E/166B8E.png" width="10%" height="3px"><img src="https://placehold.co/100x3/154BB2/154BB2.png" width="10%" height="3px"><img src="https://placehold.co/100x3/0E2A80/0E2A80.png" width="10%" height="3px"></div>
+---
 
-## 📚 Documentation <a name="documentation"></a>
+## Documentation <a name="documentation"></a>
 
-### 🤝 Contributing
+### Contributing
 Contributions are always welcome! Whether it is adding new themes, creating different puzzle types (2x2, Pyraminx), or optimizing the 3D performance. If you have a feature idea, feel free to open an Issue or submit a Pull Request.
 
 <a name="contacts"></a>
-## 🤝 Contacts
+## Contacts
 
 | Source | Link |
 | :--- | :--- |
 | **GitHub Profile** | [vasanth642](https://github.com/vasanth642) |
 | **Project Repository** | [CubeIt](https://github.com/vasanth642/CubeIt) |
 
-### 🙌 Credits
+### Credits
 The 3D Rubik’s Cube model used in this project is a modified version of the original work by **Sean Bradley**.
 
-<div align="center"><img src="https://placehold.co/100x3/9A1838/9A1838.png" width="10%" height="3px"><img src="https://placehold.co/100x3/B43E2C/B43E2C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/C56821/C56821.png" width="10%" height="3px"><img src="https://placehold.co/100x3/CE921C/CE921C.png" width="10%" height="3px"><img src="https://placehold.co/100x3/D0B92B/D0B92B.png" width="10%" height="3px"><img src="https://placehold.co/100x3/81A543/81A543.png" width="10%" height="3px"><img src="https://placehold.co/100x3/258C5A/258C5A.png" width="10%" height="3px"><img src="https://placehold.co/100x3/166B8E/166B8E.png" width="10%" height="3px"><img src="https://placehold.co/100x3/154BB2/154BB2.png" width="10%" height="3px"><img src="https://placehold.co/100x3/0E2A80/0E2A80.png" width="10%" height="3px"></div>
+---
 <p align="center">
   <b>Built for speedcubers, by a speedcuber. Happy solving! 🏁</b>
   <br>
   Don't forget to ⭐ star the repo if you like this project!
 </p>
-
-<img 
-    src="https://capsule-render.vercel.app/api?type=waving&color=0:9A1838,20:C56821,50:D0B92B,80:258C5A,100:0E2A80&height=100&section=footer&animation=fadeIn" 
-    width="100%" 
-    alt="Luxury Waving Footer" 
-/>

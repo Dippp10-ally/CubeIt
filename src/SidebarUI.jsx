@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { formatTime, calculateAoN, getSessionAvg, getBest } from './utils/stats';
 
 function SolveItem({ solve, index, onPenalty, onDelete, isPB }) {
@@ -71,6 +71,25 @@ const NAV_ITEMS = [
 function HistoryPanel({ data, onSessionChange, onAddSession, onClearSession, onPenalty, onDeleteSolve, solves, best }) {
 const [searchQuery, setSearchQuery] = useState("");
 const [filterType, setFilterType] = useState("all");
+const filteredSolves = useMemo(() => {
+  return [...solves].reverse().filter((solve) => {
+    const solveTime = formatTime(
+      solve.timeMs + (solve.penalty === 2 ? 2000 : 0)
+    );
+
+    const matchesSearch = solveTime
+      .toLowerCase()
+      .startsWith(searchQuery.toLowerCase());
+
+    let matchesFilter = true;
+
+    if (filterType === "normal") matchesFilter = solve.penalty === 0;
+    if (filterType === "plus2") matchesFilter = solve.penalty === 2;
+    if (filterType === "dnf") matchesFilter = solve.penalty === -1;
+
+    return matchesSearch && matchesFilter;
+  });
+}, [solves, searchQuery, filterType]);
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       {/* Session selector */}
@@ -159,28 +178,24 @@ const [filterType, setFilterType] = useState("all");
 
       {/* Solve list */}
       <div style={{ display: 'flex', flexDirection: 'column', overflowY: 'auto', flex: 1, paddingRight: '4px', scrollbarWidth: 'none' }}>
-        {[...solves]
-        .reverse()
-        .filter((solve) => {
-          const solveTime = formatTime(
-            solve.timeMs + (solve.penalty === 2 ? 2000 : 0)
-          );
+       {filteredSolves.map((solve) => {
+  const trueIndex = solves.indexOf(solve) + 1;
 
-          return solveTime
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase());
-  })
-  .map((solve, i) => (
-          <SolveItem
-            key={solve.id}
-            index={solves.length - i}
-            solve={solve}
-            isPB={solve.timeMs + (solve.penalty === 2 ? 2000 : 0) === best && solve.penalty !== -1}
-            onPenalty={(v) => onPenalty(solve.id, v)}
-            onDelete={() => onDeleteSolve(solve.id)}
-          />
-        ))}
-        {solves.length === 0 ? (
+  return (
+    <SolveItem
+      key={solve.id}
+      index={trueIndex}
+      solve={solve}
+      isPB={
+        solve.timeMs + (solve.penalty === 2 ? 2000 : 0) === best &&
+        solve.penalty !== -1
+      }
+      onPenalty={(v) => onPenalty(solve.id, v)}
+      onDelete={() => onDeleteSolve(solve.id)}
+    />
+  );
+})}
+        {solves.length === 0 && (
   <div
     style={{
       flex: 1,
@@ -193,29 +208,9 @@ const [filterType, setFilterType] = useState("all");
   >
     No solves yet.
   </div>
-) : [...solves]
-    .reverse()
-    .filter((solve) => {
-      const solveTime = formatTime(
-        solve.timeMs + (solve.penalty === 2 ? 2000 : 0)
-      );
+)}
 
-      const matchesSearch = solveTime
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase());
-
-      let matchesFilter = true;
-
-      if (filterType === "normal") {
-        matchesFilter = solve.penalty === 0;
-      } else if (filterType === "plus2") {
-        matchesFilter = solve.penalty === 2;
-      } else if (filterType === "dnf") {
-        matchesFilter = solve.penalty === -1;
-      }
-
-      return matchesSearch && matchesFilter;
-    }).length === 0 ? (
+{solves.length > 0 && filteredSolves.length === 0 && (
   <div
     style={{
       flex: 1,
@@ -228,7 +223,7 @@ const [filterType, setFilterType] = useState("all");
   >
     No matching solves found.
   </div>
-) : null}
+)}
       </div>
     </div>
   );

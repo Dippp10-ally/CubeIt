@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { formatTime, calculateAoN, getSessionAvg, getBest } from './utils/stats';
 
 function SolveItem({ solve, index, onPenalty, onDelete, isPB }) {
@@ -69,6 +69,27 @@ const NAV_ITEMS = [
 
 // History panel content (shared between desktop sidebar and mobile drawer)
 function HistoryPanel({ data, onSessionChange, onAddSession, onClearSession, onPenalty, onDeleteSolve, solves, best }) {
+const [searchQuery, setSearchQuery] = useState("");
+const [filterType, setFilterType] = useState("all");
+const filteredSolves = useMemo(() => {
+  return [...solves].reverse().filter((solve) => {
+    const solveTime = formatTime(
+      solve.timeMs + (solve.penalty === 2 ? 2000 : 0)
+    );
+
+    const matchesSearch = solveTime
+      .toLowerCase()
+      .startsWith(searchQuery.toLowerCase());
+
+    let matchesFilter = true;
+
+    if (filterType === "normal") matchesFilter = solve.penalty === 0;
+    if (filterType === "plus2") matchesFilter = solve.penalty === 2;
+    if (filterType === "dnf") matchesFilter = solve.penalty === -1;
+
+    return matchesSearch && matchesFilter;
+  });
+}, [solves, searchQuery, filterType]);
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       {/* Session selector */}
@@ -99,24 +120,110 @@ function HistoryPanel({ data, onSessionChange, onAddSession, onClearSession, onP
           style={{ background: 'transparent', color: 'rgba(255,255,255,0.35)', border: '0.5px solid rgba(255,255,255,0.12)', borderRadius: '6px', padding: '3px 9px', fontSize: '0.7rem', cursor: 'pointer', fontWeight: '600', transition: 'all 0.2s' }}
         >Clear</button>
       </div>
+      {/* Search Input */}
+      <div style={{ marginBottom: '14px' }}>
+        <input
+        type="text"
+        placeholder="Search solve time..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        style={{
+          width: '100%',
+          background: 'rgba(255,255,255,0.05)',
+          color: 'white',
+          border: '0.5px solid rgba(255,255,255,0.15)',
+          padding: '10px 12px',
+          borderRadius: '10px',
+          outline: 'none',
+          fontSize: '0.85rem',
+          boxSizing: 'border-box'
+    }}
+  />
+  </div>
+  {/* Filter Dropdown */}
+  <div style={{ marginBottom: '14px' }}>
+    <select
+  value={filterType}
+  onChange={(e) => setFilterType(e.target.value)}
+  style={{
+    width: '100%',
+    background: 'rgba(255,255,255,0.05)',
+    color: 'white',
+    border: '0.5px solid rgba(255,255,255,0.15)',
+    padding: '10px 12px',
+    borderRadius: '10px',
+    outline: 'none',
+    fontSize: '0.85rem',
+    boxSizing: 'border-box',
+    cursor: 'pointer'
+  }}
+>
+  <option value="all" style={{ color: 'black' }}>
+    All Solves
+  </option>
+
+  <option value="normal" style={{ color: 'black' }}>
+    Normal
+  </option>
+
+  <option value="plus2" style={{ color: 'black' }}>
+    +2
+  </option>
+
+  <option value="dnf" style={{ color: 'black' }}>
+    DNF
+  </option>
+</select>
+</div>
 
       {/* Solve list */}
       <div style={{ display: 'flex', flexDirection: 'column', overflowY: 'auto', flex: 1, paddingRight: '4px', scrollbarWidth: 'none' }}>
-        {[...solves].reverse().map((solve, i) => (
-          <SolveItem
-            key={solve.id}
-            index={solves.length - i}
-            solve={solve}
-            isPB={solve.timeMs + (solve.penalty === 2 ? 2000 : 0) === best && solve.penalty !== -1}
-            onPenalty={(v) => onPenalty(solve.id, v)}
-            onDelete={() => onDeleteSolve(solve.id)}
-          />
-        ))}
+       {filteredSolves.map((solve) => {
+  const trueIndex = solves.indexOf(solve) + 1;
+
+  return (
+    <SolveItem
+      key={solve.id}
+      index={trueIndex}
+      solve={solve}
+      isPB={
+        solve.timeMs + (solve.penalty === 2 ? 2000 : 0) === best &&
+        solve.penalty !== -1
+      }
+      onPenalty={(v) => onPenalty(solve.id, v)}
+      onDelete={() => onDeleteSolve(solve.id)}
+    />
+  );
+})}
         {solves.length === 0 && (
-          <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.2)', fontSize: '0.85rem' }}>
-            No solves yet.
-          </div>
-        )}
+  <div
+    style={{
+      flex: 1,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: 'rgba(255,255,255,0.2)',
+      fontSize: '0.85rem'
+    }}
+  >
+    No solves yet.
+  </div>
+)}
+
+{solves.length > 0 && filteredSolves.length === 0 && (
+  <div
+    style={{
+      flex: 1,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: 'rgba(255,255,255,0.2)',
+      fontSize: '0.85rem'
+    }}
+  >
+    No matching solves found.
+  </div>
+)}
       </div>
     </div>
   );

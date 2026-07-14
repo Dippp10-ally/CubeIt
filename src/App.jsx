@@ -153,7 +153,7 @@ export default function App() {
   const [cubeVisible, setCubeVisible] = useState(true)
 
   const [data, setData] = useState(loadData)
-
+  const [viewerState,setViewerState] = useState('loading')
   // Mobile detection
   const [isMobile, setIsMobile] = useState(false)
   const [cubeSize, setCubeSize] = useState(400)
@@ -205,14 +205,22 @@ export default function App() {
     setScrambleText(initScramble)
 
     // Poll to ensure R3F children are fully mounted before applying rotation filters
-    const checkAndScramble = () => {
-      if (cubeGroup.current?.children.length === 27) {
+    const checkAndScramble = (attempt) => {
+      if (cubeGroup.current&&rotationGroup.current&&cubeGroup.current.children.length===27) {
+        setViewerState("ready")
         applyScramble(initScramble)
+        return
       } else {
-        setTimeout(checkAndScramble, 20)
+        if(attempt<100){
+          setTimeout(()=>{
+            checkAndScramble(attempt+1)
+          },20)
+        }else{
+          setViewerState("Error")
+        }
       }
     }
-    checkAndScramble()
+    checkAndScramble(0)
   }, [applyScramble])
 
   const updateTimer = useCallback(() => {
@@ -538,15 +546,17 @@ export default function App() {
         isFocusMode={isFocusMode}
       />
 
-      <TimerUI
-        appState={appState}
-        timeMs={timeMs}
-        scrambleText={scrambleText}
-        inspectionTimeMs={inspectionTimeMs}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-        isMobile={isMobile}
-      />
+     {viewerState !== "Error" && (
+  <TimerUI
+    appState={appState}
+    timeMs={timeMs}
+    scrambleText={scrambleText}
+    inspectionTimeMs={inspectionTimeMs}
+    onTouchStart={handleTouchStart}
+    onTouchEnd={handleTouchEnd}
+    isMobile={isMobile}
+  />
+)}
 
       {/* Soft amethyst ground glow under cube */}
       <div style={{
@@ -574,6 +584,78 @@ export default function App() {
         opacity: isFocusMode ? 0 : 1,
         transition: 'opacity 0.6s ease-in-out'
       }}>
+        {viewerState==="Error"?(
+          <div
+          style={
+            {
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignContent: "center",
+              textAlign:"center",
+              padding:"32px",
+              borderRadius: "24px",
+              background: "rgba(255,255,255,0.04)",
+              backdropFilter: "blur(30px)",
+              WebkitBackdropFilter: "blur(30px)",
+              border:  "1px solid rgba(255,255,255,0.08)",
+              color:"#FFFFFF",
+              boxSizing: "border-box",
+            }
+          }>
+            <div style={{fontSize: "52px",marginBottom: "16px"}}>⚠️</div>
+
+    <h2
+      style={{
+        margin: 0,
+        fontSize: "30px",
+        fontWeight: 600,
+      }}
+    >
+      Cube failed to initialize
+    </h2>
+
+    <p
+      style={{
+        marginTop: "18px",
+        marginBottom: "32px",
+        maxWidth: "320px",
+        color: "rgba(255,255,255,0.8)",
+        lineHeight: 1.6,
+        fontSize: "17px",
+      }}
+    >
+      The 3D cube could not be initialized.
+      <br />
+      Please refresh the page and try again.
+    </p>
+
+    <button
+      onClick={() => window.location.reload()}
+      style={{
+        padding: "14px 30px",
+        borderRadius: "14px",
+        border: "none",
+        background: "#7C3AED",
+        color: "#FFFFFF",
+        fontSize: "16px",
+        fontWeight: 600,
+        cursor: "pointer",
+        transition: "all 0.2s ease",
+      }}
+      onMouseEnter={(e) =>
+        (e.currentTarget.style.background = "#8B5CF6")
+      }
+      onMouseLeave={(e) =>
+        (e.currentTarget.style.background = "#7C3AED")
+      }
+    >
+      Refresh Page
+    </button>
+  </div>
+        ):(
         <Canvas camera={{ position: [5, 5, 5], fov: 45 }}>
           <Suspense fallback={null}>
             <Environment preset="city" />
@@ -590,7 +672,7 @@ export default function App() {
 
             <OrbitControls makeDefault enablePan={false} />
           </Suspense>
-        </Canvas>
+        </Canvas>)}
       </div>
     </div>
   )
